@@ -16,7 +16,7 @@ See the file [asset_pricing_sequential_defaults.yaml](asset_pricing_sequential_d
 
 ### Jupyter Notebook for Exploration
 
-You can load the Jupyter notebook [asset_pricing_sequential.ipynb](demo_notebooks/asset_pricing_sequential.ipynb) directly in VS Code or on the command-line with `jupyter lab` run in the local directory.  This notebook provides the simple example of the traing the asset pricing sequential model and provides utilities to examine the output without using the commandline commands.
+You can load the Jupyter notebook [asset_pricing_sequential.ipynb](demo_notebooks/asset_pricing_sequential_demo.ipynb) directly in VS Code or on the command-line with `jupyter lab` run in the local directory.  This notebook provides the simple example of the traing the asset pricing sequential model and provides utilities to examine the output without using the commandline commands.
 
 ### CLI Usage
 
@@ -77,7 +77,7 @@ Deterministic Sequential LSS can also be used to solve the neoclassical growth m
 
 ### Jupyter Notebook for Exploration
 
-You can load the Jupyter notebook  [growth_sequential.ipynb](demo_notebooks/growth_sequential.ipynb) directly in VS Code or on the command-line with `jupyter lab` run in the local directory.  This notebook provides the simple example of the traing the asset pricing sequential model and provides utilities to examine the output without using the commandline commands.
+You can load the Jupyter notebook  [growth_sequential.ipynb](demo_notebooks/growth_sequential_demo.ipynb) directly in VS Code or on the command-line with `jupyter lab` run in the local directory.  This notebook provides the simple example of the traing the asset pricing sequential model and provides utilities to examine the output without using the commandline commands.
 
 ### CLI Usage
 You can run with the baseline parameters using:
@@ -111,7 +111,7 @@ See the file [growth_recursive_defaults.yaml](growth_recursive_defaults.yaml) fo
 
 ### Jupyter Notebook for Exploration
 
-You can load the Jupyter notebook  [growth_recursive.ipynb](demo_notebooks/growth_recursive.ipynb) directly in VS Code or on the command-line with `jupyter lab` run in the local directory.  This notebook provides the simple example of the traing the asset pricing sequential model and provides utilities to examine the output without using the commandline commands.
+You can load the Jupyter notebook  [growth_recursive.ipynb](demo_notebooks/growth_recursive_demo.ipynb) directly in VS Code or on the command-line with `jupyter lab` run in the local directory.  This notebook provides the simple example of the traing the asset pricing sequential model and provides utilities to examine the output without using the commandline commands.
 
 
 ### CLI Usage 
