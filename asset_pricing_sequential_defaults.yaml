@@ -1,0 +1,83 @@
+trainer:
+  accelerator: cpu
+  max_epochs: 1
+  min_epochs: 0
+  max_time: 00:00:10:00
+  precision: 32
+  num_sanity_val_steps: 0
+  logger:
+    class_path: pytorch_lightning.loggers.WandbLogger
+    init_args:
+      offline: true # set to true to not upload during testing
+      log_model: false # set to true to save the model at the end
+      name: null # can set name or have it automatically generated
+      project: transversality_examples
+      group: null # can group related runs
+      tags:
+        - basic_example
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.LearningRateMonitor
+      init_args:
+        logging_interval: step
+        log_momentum: false
+    - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+      init_args:
+        filename: best
+        monitor: train_loss
+        verbose: false
+        save_last: true
+        save_top_k: 1
+        save_weights_only: true
+        mode: min
+        auto_insert_metric_name: true
+    - class_path: pytorch_lightning.callbacks.EarlyStopping
+      init_args:
+        monitor: train_loss
+        min_delta: 0.0
+        patience: 50
+        mode: min
+        check_finite: true
+        divergence_threshold: 100000 # stops if larger
+        stopping_threshold: 1.0e-7   # typically the binding stopping threshold
+optimizer:
+  class_path: torch.optim.LBFGS
+  init_args:
+    lr: 1.0
+    tolerance_grad: 1.0e-6
+    max_iter: 200
+    line_search_fn: 'strong_wolfe' 
+model:
+  beta: 0.9
+  y_0: 0.08
+  g: -0.1 # for g = 0.02 and set learning_rate=0.0001, lr_gamma=0.7, rescaling_layer=ScalarExponentialRescaling
+  c: 0.01 # default c and g are set such that \bar{y} = 0.1
+  batch_size: 0 # set to 0 to use full batch
+  train_t_min: 0
+  train_t_max: 29 # set to 0 to only use extra points
+  train_t_step: 1
+  train_t_extra_points: [] # [4, 6, 8] indices etc.
+  #train_t_extra_points : [0, 1, 2, 4, 6, 8, 12, 16, 20, 24, 29] # Grid 1: make sure you set train_t_max: 0 for this option
+  #train_t_extra_points : [0, 1, 4, 8, 12, 16, 20, 24, 29] # Grid 2: make sure you set train_t_max: 0 for this option
+  test_T: 49 # ensure it is above the `train_t_max` and extra_points 
+  shuffle_training: false
+  ml_model:
+    class_path: econ_layers.layers.FlexibleSequential
+    init_args:
+      n_in: 1
+      n_out: 1
+      layers: 4
+      hidden_dim: 128
+      hidden_bias: true
+      last_bias: true
+      activator:
+        class_path: torch.nn.Tanh
+      last_activator:
+        class_path: torch.nn.Softplus
+  # Settings for output
+  verbose: false
+  hpo_objective_name: test_loss
+  always_log_hpo_objective: false  
+  print_metrics: false
+  save_metrics: false
+  save_test_results: false
+  test_loss_success_threshold: 1e-6 # typically failures of overfitting are far above this

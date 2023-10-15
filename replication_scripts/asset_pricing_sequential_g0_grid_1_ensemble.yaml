@@ -1,0 +1,27 @@
+program: asset_pricing_sequential.py
+name: asset_pricing_sequential_g0_grid_1_ensemble
+description: Ensemble run with asset pricing sequential with g = 0 for Grid1 (100 seeds) 
+method: grid
+parameters:
+  trainer.logger.tags:
+    value: [asset_pricing_sequential_g0_grid_1_ensemble]
+  seed:
+    min: 1
+    max: 100 # number of ensembles to solve
+  trainer.logger.offline:
+    value: false # log online for W&B optimization
+  trainer.max_time:
+    value: 00:00:03:00  # these tests shouldn't take more than 2-3 minutes
+   # Stopping criteria
+  trainer.callbacks.monitor:
+    value: train_loss
+  trainer.callbacks.stopping_threshold:
+    value: 1.0e-7
+
+  # Providing Grid1
+  model.train_t_min:
+    value: 0
+  model.train_t_max:
+    value: 0
+  model.train_t_extra_points:
+    value: [0, 1, 2, 4, 6, 8, 12, 16, 20, 24, 29]   #Grid 1

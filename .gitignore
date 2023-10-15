@@ -1,0 +1,98 @@
+# ML stuff 
+tests/ds.pt
+**/runs 
+**/*.pt
+
+# Project stuff 
+**/.ipynb_checkpoints
+.DS_Store
+/dev/
+*.bbl
+*.aux
+*.blg
+*.gz
+*.log
+docs/rough_notes.pdf
+experiments/main.pdf
+**/.png
+*.png
+**/lightning_logs
+grid_artifacts
+grid_artifacts_2
+docs/__latexindent_temp.tex
+
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+*.out
+.vscode/settings.json
+
+**/__latexindex_temp.*
+docs/rough_notes.tex
+docs/rough_notes.fdb_latexmk
+docs/rough_notes.fls
+
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.toc
+__latexindent_temp.*
+docs/transversality_presentation.pdf
+docs/transversality_presentation_short_sed.pdf
+SpookyBoundary.pdf
+docs/main.pdf
+*.synctex(busy)
+
+# dynare stuff
+
+dynare_exp/+cap_adj/*
+dynare_exp/cap_adj/*
+dynare_exp/+bigger_cap_adj/*
+dynare_exp/bigger_cap_adj/*
+
+
+# Pyre type checker
+.pyre/
+
+.DS_Store
+**/lightning_logs
+.vscode/settings.json
+config.yaml
+checkpoints/*
+./wand
+transversality_examples
+metrics.yaml
+wandb/
+
+# figures 
+figures/*.pdf
+artifacts/

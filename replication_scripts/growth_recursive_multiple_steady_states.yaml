@@ -1,0 +1,98 @@
+# Script for a 4 different k_0 for the model with 2 steady states.  
+# This solution method is more demanding than the other models, with the high failure rate (about 38%)
+# special attention need to be put for retcodes, 
+
+
+program: growth_recursive.py
+name: growth_recursive_multiple_ss
+description: growth recursive with g = 0 with three different inital conditions for k_0
+method: grid
+parameters:
+  seed:
+    min: 1
+    max: 100
+  trainer.logger.tags:
+    value: [growth_recursive_multiple_ss]
+  trainer.logger.offline:
+    value: False # log online for W&B optimization
+  trainer.max_time:
+    value: 00:00:10:00  # these tests shouldn't take more than 2-3 minutes
+   # Stopping criteria
+  trainer.callbacks.monitor:
+    value: val_loss
+  trainer.callbacks.stopping_threshold:
+    value: 5e-6
+  trainer.max_time:
+    value: 00:00:10:00  # these tests shouldn't take more than 5 minutes, I increased a time as it is ADAM
+  trainer.max_epochs: 
+    value: 5000
+  trainer.min_epochs: 
+    value: 0
+  trainer.limit_val_batches:
+    value: 5000
+  model.test_loss_success_threshold: 
+    value: 1e-4
+  model.ml_model.activator.class_path:
+    value: torch.nn.ReLU
+  model.ml_model.last_activator.class_path:
+    value: torch.nn.Softplus
+  
+# model 
+  model.a:
+    value: 0.5
+  model.b_1:
+    value: 3.0
+  model.b_2:
+    value: 2.5
+
+  model.batch_size:
+    value: 0
+  model.shuffle_training:
+    value: True
+
+  model.vfi_parameters.interpolation_kind:
+    value: "linear"
+  model.vfi_parameters.k_grid_size:
+    value: 1000
+  
+  #redefine grid
+  model.k_sim_grid_points: 
+    value: 1024
+  model.k_grid_max: 
+    value: 25
+  model.k_grid_min: 
+    value: 0.4
+  model.k_grid_max_2: 
+    value: 1.5
+  model.k_grid_min_2: 
+    value: 0.45
+  model.max_T_test:
+    value: 50
+  model.ml_model.hidden_dim:
+    value: 256
+  model.ml_model.layers:
+    value: 4
+  model.val_min_1:
+    value: 3.1
+  model.val_max_1:
+    value: 4.2
+  model.val_min_2:
+    value: 0.4
+  model.val_max_2:
+    value: 1.2
+  model.val_sim_grid_points:
+    value: 200
+# optimzer should be RADAM
+  optimizer.class_path:
+    value: torch.optim.RAdam 
+  optimizer.lr: 
+      value: 0.001
+  lr_scheduler.class_path:
+    value: torch.optim.lr_scheduler.StepLR
+  lr_scheduler.gamma:
+    value: 0.95
+  lr_scheduler.step_size:
+    value: 200
+  
+  model.k_0:
+    values: [0.4, 1.0, 3.3,4.0]  # three different initial conditions outside of the grid for capita

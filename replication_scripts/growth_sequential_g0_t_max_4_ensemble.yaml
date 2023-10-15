@@ -1,0 +1,25 @@
+program: growth_sequential.py
+name: growth_sequential_g0_t_max_4_ensemble
+description: Ensemble run with growth sequential with g = 0 (100 seeds) for max grid t 4
+method: grid
+parameters:
+  trainer.logger.tags:
+    value: [growth_sequential_g0_t_max_4_ensemble]
+  seed:
+    min: 1
+    max: 100 # number of ensembles to solve
+  trainer.logger.offline:
+    value: false # log online for W&B optimization
+  trainer.max_time:
+    value: 00:00:03:00  # these tests shouldn't take more than 2-3 minutes
+   # Stopping criteria
+  trainer.callbacks.monitor:
+    value: train_loss
+  trainer.callbacks.stopping_threshold:
+    value: 1.0e-7
+
+  model.train_t_max:
+    value: 4  
+
+  model.test_T: 
+    value: 20

@@ -1,0 +1,45 @@
+program: growth_recursive_using_c.py
+name: growth_recursive_g0_using_c_grid_ensemble_ADAM
+description: Ensemble run with growth recursive with g = 0 (100 seeds) on the grid with NN(c)
+method: grid
+parameters:
+  trainer.logger.tags:
+    value: [growth_recursive_g0_using_c_grid_ensemble_ADAM]
+  seed:
+    min: 1
+    max: 100
+  trainer.logger.offline:
+    value: false # log online for W&B optimization
+  trainer.max_time:
+    value: 00:00:10:00  # these tests shouldn't take more than 10 minutes
+   # Stopping criteria
+  trainer.callbacks.monitor:
+    value: train_loss
+  trainer.callbacks.stopping_threshold:
+    value: 1.0e-11
+  trainer.max_epochs: 
+    value: 5000
+  trainer.min_epochs: 
+    value: 20
+  trainer.callbacks.patience: 
+    value: 5000
+  model.max_T_test:
+    value: 0
+  model.batch_size:
+    value: 4
+
+
+#ADAM optim values 
+  optimizer.class_path:
+    value: torch.optim.Adam
+  optimizer.lr: 
+      value: 0.001
+  lr_scheduler.class_path:
+    value: torch.optim.lr_scheduler.StepLR
+  lr_scheduler.step_size: 
+    value: 100
+  lr_scheduler.gamma:
+      value: 0.9
+
+
+  

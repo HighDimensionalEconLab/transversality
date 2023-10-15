@@ -1,0 +1,57 @@
+program: growth_recursive.py
+name: growth_recursive_g_positive_var_initial_k_0_one_run
+description: growth recursive with g = 0.02 with three different inital conditions for k_0
+method: grid
+parameters:
+  trainer.logger.tags:
+    value: [growth_recursive_g_positive_var_initial_k_0_one_run]
+  trainer.logger.offline:
+    value: false # log online for W&B optimization
+  trainer.max_time:
+    value: 00:00:03:00  # these tests shouldn't take more than 2-3 minutes
+   # Stopping criteria
+  trainer.callbacks.monitor:
+    value: train_loss
+  trainer.callbacks.stopping_threshold:
+    value: 1.0e-7
+
+  model.g:
+    value: 0.02
+  model.k_grid_min: 
+    value: 0.8
+  model.k_grid_max: 
+    value: 3.5
+  model.z_grid_min: 
+    value: 0.8
+  model.z_grid_max: 
+    value: 1.8
+  model.k_sim_grid_points: 
+    value: 16
+  model.z_sim_grid_points: 
+    value: 8
+  model.k_0:
+     values: [0.5, 3.25, 4.0] # three different initial conditions outside of the grid for capital
+  
+  model.ml_model.class_path:
+    value:  econ_layers.layers.FlexibleSequential
+  model.ml_model.init_args.n_in:
+    value: 2
+  model.ml_model.init_args.n_out:
+    value: 1
+  model.ml_model.init_args.layers:
+    value: 4
+  model.ml_model.init_args.hidden_dim: 
+    value: 128
+  model.ml_model.init_args.hidden_bias: 
+    value: true
+  model.ml_model.init_args.last_bias: 
+    value: true
+  model.ml_model.init_args.activator.class_path:
+    value: torch.nn.Tanh
+  model.ml_model.init_args.last_activator.class_path:
+    value: torch.nn.Softplus
+  model.ml_model.init_args.OutputRescalingLayer.class_path:
+    value: econ_layers.layers.RescaleOutputsByInput
+  model.ml_model.init_args.InputRescalingLayer.class_path:
+    value: econ_layers.layers.RescaleAllInputsbyInput
+  
