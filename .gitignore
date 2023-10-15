@@ -12,8 +12,6 @@ tests/ds.pt
 *.blg
 *.gz
 *.log
-docs/rough_notes.pdf
-experiments/main.pdf
 **/.png
 *.png
 **/lightning_logs
@@ -72,12 +70,6 @@ SpookyBoundary.pdf
 docs/main.pdf
 *.synctex(busy)
 
-# dynare stuff
-
-dynare_exp/+cap_adj/*
-dynare_exp/cap_adj/*
-dynare_exp/+bigger_cap_adj/*
-dynare_exp/bigger_cap_adj/*
 
 
 # Pyre type checker
