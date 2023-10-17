@@ -1,0 +1,30 @@
+program: growth_seq.py
+project: TVC_examples
+name: train_loss_growth_seq_g0_contiguous
+description: HPO for train_loss growth sequential g=0 contiguous grid
+method: bayes
+metric:
+  # See the  growth_seq.py log_and_save
+  name: hpo_objective 
+  goal: minimize
+
+parameters:
+  # Fix parameters here:
+  trainer.logger.offline:
+    value: false # log online for W&B optimization
+  trainer.max_time:
+    value: 00:00:02:00  # these tests shouldn't take more than 2 minutes
+  model.hpo_objective_name:
+    value: train_loss
+  model.always_log_hpo_objective:
+    value: true
+   # Stopping criteria
+  trainer.callbacks.monitor:
+    value: train_loss
+  trainer.callbacks.stopping_threshold:
+    value: 1.0e-7
+
+# Provide distributions and variations for optimizer
+  optimizer.lr:
+    min: 0.01
+    max: 1.0

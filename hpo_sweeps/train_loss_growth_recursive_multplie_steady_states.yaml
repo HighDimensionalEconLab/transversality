@@ -1,0 +1,87 @@
+program: growth_recursive.py
+project: TVC_examples
+name: train_loss_growth_recursive_multplie_steady_states
+description: hpo for growth recursive with g = 0 with multiple steady states
+metric:
+  name: hpo_objective 
+  goal: minimize
+method: bayes
+parameters:
+  trainer.logger.tags:
+    value: [train_loss_growth_recursive_multplie_steady_states]
+  trainer.logger.offline:
+    value: false # log online for W&B optimization
+  trainer.max_time:
+    value: 00:00:10:00  # these tests shouldn't take more than 10 minutes
+   # Stopping criteria
+  trainer.callbacks.monitor:
+    value: train_loss
+  trainer.callbacks.stopping_threshold:
+    value: 1.0e-10
+  trainer.max_epochs: 
+    value: 10000
+  trainer.min_epochs: 
+    value: 0
+
+  model.ml_model.activator.class_path:
+    values: [torch.nn.ReLU, torch.nn.Tanh, torch.nn.Sigmoid]
+  model.ml_model.last_activator.class_path:
+    values: [torch.nn.Softplus]
+  model.ml_model.layers:
+    values: [3,4,5]
+  model.ml_model.hidden_dim:
+    values: [128, 256]
+  
+# model 
+  model.a:
+    value: 0.5
+  model.b_1:
+    value: 3.0
+  model.b_2:
+    value: 2.5
+
+  model.batch_size:
+    values: [0, 8, 16, 32]
+  model.shuffle_training:
+    value: True
+
+  model.vfi_parameters.interpolation_kind:
+    value: "linear"
+  model.vfi_parameters.k_grid_size:
+    value: 1000
+  model.hpo_objective_name:
+    value: k_abs_rel_error
+
+  #redefine grid
+  model.k_sim_grid_points: 
+    values: [200, 500, 1000, 2000]
+  model.k_grid_max: 
+    value: 4.0
+  model.k_grid_min: 
+    value: 0.4
+  # model.max_T_test:
+  #   value: 0
+
+  model.max_T_test:
+    value: 50
+  model.k_0:
+    value: 3.9
+  model.always_log_hpo_objective:
+    value: True  
+  # it is verly likely that NN will get the non-definite attraction basin wrong
+  model.test_loss_success_threshold: 
+    value: 5e-1
+# optimzershould be ADAM
+  optimizer.class_path:
+    value: torch.optim.Adam
+  optimizer.lr: 
+      min: 0.0001
+      max: 0.01
+  lr_scheduler.class_path:
+    value: torch.optim.lr_scheduler.StepLR
+  lr_scheduler.step_size: 
+    values: [100, 200]
+  lr_scheduler.gamma:
+      values: [0.9, 0.95]
+  
+
