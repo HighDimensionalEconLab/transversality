@@ -10,13 +10,17 @@ Within a python environment, clone this repository with git and execute `pip ins
 See more complete instructions below in the [detailed installation](#detailed-installation-instructions) section.
 
 ## Sequential Asset Pricing Model: Linear State-Space Model 
-This variation of the model solves the LSS model for a `p(t)`. This `p : R \to R` can be evaluated between time-periods but probably shouldn't be.
+This solves for the price path $$p(t)$$
+
+The price path $$p : \mathbb{R} \rightarrow \mathbb{R}$$ can be evaluated at different time periods.
 
 See the file [asset_pricing_sequential_defaults.yaml](asset_pricing_sequential_defaults.yaml) for the default values.
 
 ### Jupyter Notebook for Exploration
 
-You can load the Jupyter notebook [asset_pricing_sequential.ipynb](demo_notebooks/asset_pricing_sequential_demo.ipynb) directly in VS Code or on the command line with `jupyter lab` run in the local directory. This notebook provides a simple example of training the asset pricing sequential model and provides utilities to examine the output without using the command line commands.
+You can load the Jupyter notebook [asset_pricing_sequential.ipynb](demo_notebooks/asset_pricing_sequential_demo.ipynb) directly in VS Code or on the command line with `jupyter lab` or [Google Colab](https://colab.research.google.com/). This notebook provides a simple example of training the asset pricing sequential model and provides utilities to examine the output without using the command line commands.
+
+A note on `Google Colab`: This [link](https://bebi103a.github.io/lessons/02/git_with_colab.html) provides instructions on how to open the notebooks in Colab
 
 ### CLI Usage
 
@@ -73,12 +77,15 @@ The output of the file will be in something like ./wandb/offline-run-.... You ca
  ```
 
 ## Sequential Neoclassical Growth Model 
- The sequential neoclassical growth model: solving for a k(t). This k : R \to R can be evaluated between time-periods.
+ The sequential neoclassical growth model solves for capital path $$k(t)$$. 
+ 
+ The capital path $$k : \mathbb{R} \rightarrow \mathbb{R}$$ can be evaluated at different time periods.
 
 ### Jupyter Notebook for Exploration
 
-You can load the Jupyter notebook  [growth_sequential.ipynb](demo_notebooks/growth_sequential_demo.ipynb) directly in VS Code or on the command line with `jupyter lab` run in the local directory. This notebook provides a simple example of training the asset pricing sequential model and provides utilities to examine the output without using the command line commands.
+You can load the Jupyter notebook  [growth_sequential.ipynb](demo_notebooks/growth_sequential_demo.ipynb) directly in VS Code or on the command line with `jupyter lab` or [Google Colab](https://colab.research.google.com/). This notebook provides a simple example of training the neoclassical sequential model and provides utilities to examine the output without using the command line commands.
 
+A note on `Google Colab`: This [link](https://bebi103a.github.io/lessons/02/git_with_colab.html) provides instructions on how to open the notebooks in Colab
 ### CLI Usage
 You can run with the baseline parameters using:
 ```bash
@@ -98,21 +105,26 @@ Finally, it's possible to change the starting capital level k_0:
 python growth_sequential.py --model.k_0=0.7
 ```
 
-Additionally, you can run the model with a "kink" in the production function, which has two steady states. To do so, you need to specify the parameters of the production function with "kink": a, b_1, b_2. We recommend running the model with a larger number of epochs and the ADAM optimizer like this:
+Additionally, you can run the model with a the `convex-concave` production function, which has two steady states. To do so, you need to specify the parameters of the production function: a, b_1, b_2. We recommend running the model with a `larger number of epochs` and the `ADAM` optimizer like this:
 
 ```bash
 python growth_sequential.py  --model.a=0.5 --model.b_1=3.0 --model.b_2=2.5 --trainer.max_epochs=5000 --optimizer=torch.optim.Adam --optimizer.lr=0.001  
 ```
 
 ##  Recursive Neoclassical Growth Model 
-This instead solves the neoclassical growth model for k'(z,k) where the map k' : R^2 -> R is R^2 because of the stacking z (TFP level) and k (current capital).
+This instead solves the neoclassical growth model for $$k'(z,k)$$ 
+
+where the map $$k' : \mathbb{R}^2 \rightarrow \mathbb{R}$$ 
+
+takes  z (TFP level) and k (capital) as inputs.
 
 See the file [growth_recursive_defaults.yaml](growth_recursive_defaults.yaml) for the default values.
 
 ### Jupyter Notebook for Exploration
 
-You can load the Jupyter notebook  [growth_recursive.ipynb](demo_notebooks/growth_recursive_demo.ipynb) directly in VS Code or on the command line with `jupyter lab` run in the local directory. This notebook provides a simple example of training the asset pricing sequential model and provides utilities to examine the output without using the command line commands.
+You can load the Jupyter notebook  [growth_recursive.ipynb](demo_notebooks/growth_recursive_demo.ipynb) directly in VS Code or on the command line with `jupyter lab`or [Google Colab](https://colab.research.google.com/). This notebook provides a simple example of training the recursive neoclassical growth model and provides utilities to examine the output without using the command line commands.
 
+A note on `Google Colab`: This [link](https://bebi103a.github.io/lessons/02/git_with_colab.html) provides instructions on how to open the notebooks in Colab
 
 ### CLI Usage 
 
@@ -136,7 +148,9 @@ For solving the model with two steady states, please give special attention to t
 # Replication scripts
 
 ## Weights and Biases
-One tool for testing the methods with different seeds is [Weights and Biases](https://wandb.ai/). This is a free service for academic use. It provides a dashboard to track experiments and a way to run hyperparameter optimization sweeps.
+One tool for testing the methods with different different hyperparameters and setups is [Weights and Biases](https://wandb.ai/). 
+
+This is a free service for academic use. It provides a dashboard to track experiments and a way to run hyperparameter optimization sweeps.
 
 To use it, first create an account with Weights and Biases, then, assuming you have installed the packages above, ensure you have logged in,
 
@@ -195,4 +209,4 @@ For users with less experience using python, conda, and VS Code, the following p
 
 # Hyperparameter Tuning
 Deep learning methods use a lot of tuning hyperparameters. A variety of tooling for ML and deep learning is there to help, mostly under the category of "ML DevOps". This includes tools for hyperparameter optimization, model versioning, managing results,  model deployment, and running on clusters/clouds. [Weights and Biases](https://wandb.ai/) can also be used for hyperparameter tuning. It provides useful tools such as visualizations of hyperparameter correlation and evaluations. 
- 
+
