@@ -72,8 +72,8 @@ The output of the file will be in something like ./wandb/offline-run-.... You ca
  wandb sync .\wandb\offline-run-...
  ```
 
-## Sequential Neoclassical growth model 
-Deterministic Sequential LSS can also be used to solve the neoclassical growth model: solving the LSS model for a k(t). This k : R \to R can be evaluated between time-periods, but probably shouldn't be.
+## Sequential Neoclassical Growth Model 
+ The sequential neoclassical growth model: solving for a k(t). This k : R \to R can be evaluated between time-periods.
 
 ### Jupyter Notebook for Exploration
 
