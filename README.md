@@ -9,7 +9,7 @@ Within a python environment, clone this repository with git and execute `pip ins
 
 See more complete instructions below in the [detailed installation](#detailed-installation-instructions) section.
 
-## Deterministic Sequential LSS
+## Sequential Asset Pricing Model: Linear State-Space Model 
 This variation of the model solves the LSS model for a `p(t)`. This `p : R \to R` can be evaluated between time-periods but probably shouldn't be.
 
 See the file [asset_pricing_sequential_defaults.yaml](asset_pricing_sequential_defaults.yaml) for the default values.
@@ -72,7 +72,7 @@ The output of the file will be in something like ./wandb/offline-run-.... You ca
  wandb sync .\wandb\offline-run-...
  ```
 
-## Neoclassical growth model 
+## Sequential Neoclassical growth model 
 Deterministic Sequential LSS can also be used to solve the neoclassical growth model: solving the LSS model for a k(t). This k : R \to R can be evaluated between time-periods, but probably shouldn't be.
 
 ### Jupyter Notebook for Exploration
@@ -104,7 +104,7 @@ Additionally, you can run the model with a "kink" in the production function, wh
 python growth_sequential.py  --model.a=0.5 --model.b_1=3.0 --model.b_2=2.5 --trainer.max_epochs=5000 --optimizer=torch.optim.Adam --optimizer.lr=0.001  
 ```
 
-## Deterministic Recursive LSS
+##  Recursive Neoclassical Growth Model 
 This instead solves the neoclassical growth model for k'(z,k) where the map k' : R^2 -> R is R^2 because of the stacking z (TFP level) and k (current capital).
 
 See the file [growth_recursive_defaults.yaml](growth_recursive_defaults.yaml) for the default values.
