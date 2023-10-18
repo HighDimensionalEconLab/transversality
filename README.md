@@ -1,5 +1,11 @@
 # Deep learning transversality
 
+
+https://github.com/HighDimensionalEconLab/transversality/assets/43940086/0a687ee4-cea5-4dae-864e-05506d454851
+
+
+
+
 Source for "Spooky Boundaries at a Distance: Exploring Transversality and Stability with Deep Learning"
 
 ## Installing
@@ -10,13 +16,6 @@ Within a python environment, clone this repository with git and execute `pip ins
 See more complete instructions below in the [detailed installation](#detailed-installation-instructions) section.
 
 ## Sequential Asset Pricing Model: Linear State-Space Model 
-
-
-
-
-https://github.com/HighDimensionalEconLab/transversality/assets/43940086/3967dd26-3e0f-4ec9-99b0-3d386a3e408d
-
-
 
 This solves for the price path $$p(t)$$
 
