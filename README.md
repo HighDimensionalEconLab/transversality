@@ -189,19 +189,20 @@ For users with less experience using python, conda, and VS Code, the following p
 1. Ensure you have installed Python. For example, using [Anaconda](https://www.anaconda.com/products/individual)
 2. Recommended but not required: Install [VS Code](https://code.visualstudio.com/) along with its [Python Extension](https://code.visualstudio.com/docs/languages/python)
 3. Clone this repository
+   - Make sure you have installed [Git](https://git-scm.com/)
    - Recommended: With VS Code, go `<Shift-Control-P>` to open up the commandbar, then choose `Git Clone`, and use the URL `https://github.com/HighDimensionalEconLab/transversality.git`. That will give you a full environment to work with.
    - Alternatively, you can clone it with git installed `git clone https://github.com/HighDimensionalEconLab/transversality.git`
-4. (Optional) create a conda [virtual environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+5. (Optional) create a conda [virtual environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
     ```bash
     conda create -n transversality python=3.9
     conda activate transversality
     ```
     - Python 3.10 is also broadly supported, but PyTorch doesn't fully support Python 3.11 yet. See Troubleshooting below if Python 3.10 has issues.
 
-5. (Optional) In VS Code, you can then do `<Shift-Control-P>` to open up the commandbar, then choose `> Python: Select Interpreter`, and choose the one in the `transversality` environment. Future `> Python: Terminal` commands then automatically activate it.
+6. (Optional) In VS Code, you can then do `<Shift-Control-P>` to open up the commandbar, then choose `> Python: Select Interpreter`, and choose the one in the `transversality` environment. Future `> Python: Terminal` commands then automatically activate it.
     - If you are in VS Code, opening a python terminal with  `<Shift-Control-P>` then  `> Python: Terminal` and other terminals should automatically activate the environment and start in the correct location.
 
-6. Install dependencies. With a terminal in that cloned folder (after, optionally, activating an environment as discussed above).
+7. Install dependencies. With a terminal in that cloned folder (after, optionally, activating an environment as discussed above).
     ```bash
     pip install -r requirements.txt
     ```
