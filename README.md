@@ -10,6 +10,14 @@ Within a python environment, clone this repository with git and execute `pip ins
 See more complete instructions below in the [detailed installation](#detailed-installation-instructions) section.
 
 ## Sequential Asset Pricing Model: Linear State-Space Model 
+
+
+
+
+https://github.com/HighDimensionalEconLab/transversality/assets/43940086/3967dd26-3e0f-4ec9-99b0-3d386a3e408d
+
+
+
 This solves for the price path $$p(t)$$
 
 The price path $$p : \mathbb{R} \rightarrow \mathbb{R}$$ can be evaluated at different time periods.
