@@ -4,12 +4,6 @@
 https://github.com/HighDimensionalEconLab/transversality/assets/43940086/0a687ee4-cea5-4dae-864e-05506d454851
 
 
-
-
-https://github.com/HighDimensionalEconLab/transversality/assets/43940086/683e9c6d-ca2f-481f-b752-d7a3739885e6
-
-
-
 Source for "Spooky Boundaries at a Distance: Exploring Transversality and Stability with Deep Learning"
 
 ## Installing
@@ -88,6 +82,8 @@ The output of the file will be in something like ./wandb/offline-run-.... You ca
  ```
 
 ## Sequential Neoclassical Growth Model 
+https://github.com/HighDimensionalEconLab/transversality/assets/43940086/683e9c6d-ca2f-481f-b752-d7a3739885e6
+
  The sequential neoclassical growth model solves for capital path $$k(t)$$. 
  
  The capital path $$k : \mathbb{R} \rightarrow \mathbb{R}$$ can be evaluated at different time periods.
