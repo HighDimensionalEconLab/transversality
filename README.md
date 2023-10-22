@@ -6,6 +6,10 @@ https://github.com/HighDimensionalEconLab/transversality/assets/43940086/0a687ee
 
 
 
+https://github.com/HighDimensionalEconLab/transversality/assets/43940086/683e9c6d-ca2f-481f-b752-d7a3739885e6
+
+
+
 Source for "Spooky Boundaries at a Distance: Exploring Transversality and Stability with Deep Learning"
 
 ## Installing
