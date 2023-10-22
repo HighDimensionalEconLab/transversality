@@ -82,7 +82,12 @@ The output of the file will be in something like ./wandb/offline-run-.... You ca
  ```
 
 ## Sequential Neoclassical Growth Model 
-https://github.com/HighDimensionalEconLab/transversality/assets/43940086/683e9c6d-ca2f-481f-b752-d7a3739885e6
+
+
+
+https://github.com/HighDimensionalEconLab/transversality/assets/43940086/0195f4b6-b4d2-48ad-8f6f-0d451be7270e
+
+
 
  The sequential neoclassical growth model solves for capital path $$k(t)$$. 
  
