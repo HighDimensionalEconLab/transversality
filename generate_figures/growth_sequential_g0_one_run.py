@@ -64,7 +64,7 @@ plt.xlabel(r"Time($t$)")
 plt.tight_layout()
 
 
-time_window = [18, 23]
+time_window = [44, 49]
 ave_value = 0.5 * (k_sol[time_window[0]] + k_sol[time_window[1]])
 window_width = 0.015 * ave_value
 matplotlib.rcParams.update({"ytick.labelsize": 8})
