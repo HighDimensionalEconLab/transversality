@@ -8,6 +8,7 @@ python generate_figures/asset_pricing_sequential_g0_grids.py
 python generate_figures/asset_pricing_sequential_g0_t_max_9_ensemble.py
 python generate_figures/asset_pricing_sequential_g0_t_max_14_ensemble.py
 python generate_figures/asset_pricing_sequential_g0.py
+python generate_figures/asset_pricing_sequential_g0_one_run.py
 
 # growth sequential
 
@@ -15,6 +16,7 @@ python generate_figures/growth_sequential_g_positive_ensemble.py
 python generate_figures/growth_sequential_g_positive_linear_rescaling_ensemble.py
 python generate_figures/growth_sequential_g0_grids.py
 python generate_figures/growth_sequential_g0_one_run.py
+python generate_figures/growth_sequential_g0.py
 python generate_figures/growth_sequential_g0_t_max_4_ensemble.py
 python generate_figures/growth_sequential_g0_t_max_9_ensemble.py
 python generate_figures/growth_sequential_small_k0.py
