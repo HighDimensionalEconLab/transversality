@@ -128,7 +128,7 @@ plt.title(r"Consumption: $\hat{c}(t)$")
 plt.xlabel(r"Time($t$)")
 
 ax_errors_c = plt.subplot(224, sharex=ax_k)
-plt.plot(t, quant_result_g0["c_rel_error"][quantiles["mid_quant"]], "blue", label = r"$\varepsilon_k(t)$: median" )
+plt.plot(t, quant_result_g0["c_rel_error"][quantiles["mid_quant"]], "blue", label = r"$\varepsilon_c(t)$: median" )
 plt.fill_between(
     t,
     quant_result_g0["c_rel_error"][quantiles["low_quant"]],
