@@ -69,12 +69,9 @@ plt.axvline(x=max_T, color="0.0", linestyle="dashed")
 ylim_min = 0.9 * np.amin(p_f_0)
 ylim_max = 1.1 * np.amax(p_f_0)
 plt.ylim([ylim_min, ylim_max])
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-plt.legend(by_label.values(), by_label.keys(), prop={"size": params["font.size"]})
+plt.legend()
 plt.title(r"Prices: $\hat{p}(t)$")
 plt.xlabel(r"Time($t$)")
-ax_prices_0.legend()
 plt.legend(loc="lower left")
 
 ax_errors_0 = plt.subplot(222)
@@ -95,7 +92,7 @@ plt.fill_between(
     t,
     quant_result_pos["p_t"][quantiles["low_quant"]],
     quant_result_pos["p_t"][quantiles["high_quant"]],
-    facecolor="gray",
+    facecolor="black",
     alpha=0.25,
 )
 plt.axvline(x=max_T, color="0.0", linestyle="dashed")
@@ -116,7 +113,7 @@ plt.fill_between(
     t,
     quant_result_pos["p_rel_error"][quantiles["low_quant"]],
     quant_result_pos["p_rel_error"][quantiles["high_quant"]],
-    facecolor="gray",
+    facecolor="black",
     alpha=0.25,
 )
 plt.axvline(x=max_T, color="0.0", linestyle="dashed")
