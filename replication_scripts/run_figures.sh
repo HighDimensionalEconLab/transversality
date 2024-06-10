@@ -26,6 +26,7 @@ python generate_figures/growth_sequential_multiple_steady_states_four_initial_k_
 python generate_figures/growth_sequential_multiple_steady_states_var_initial_k_0_full.py
 python generate_figures/growth_sequential_multiple_steady_states_var_initial_k_0.py
 python generate_figures/growth_sequential_g0_sparse_grids.py
+python growth_sequential_g_positive_linear_rescaling_c_k.py
 
 
 # growth recursive
