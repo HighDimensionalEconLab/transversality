@@ -79,7 +79,7 @@ plt.fill_between(
     facecolor="blue",
     alpha=0.3,
 )
-plt.axvline(x=max_T - 1, color="0.0", linestyle="dashed")
+plt.axvline(x=max_T , color="0.0", linestyle="dashed")
 ylim_min = 0.7 * np.amin(
     np.minimum(
         quant_result_g0["c_t_approx"][quantiles["mid_quant"]],
