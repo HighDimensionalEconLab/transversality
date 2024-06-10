@@ -86,6 +86,7 @@ plt.fill_between(
     alpha=0.3 
 )
 plt.axvline(x=max_T , color="0.0", linestyle="dashed")
+plt.legend()
 plt.title(r"Relative error: $\varepsilon_k(t)$")
 plt.xlabel(r"Time($t$)")
 
@@ -131,6 +132,7 @@ plt.fill_between(
     alpha=0.3,
 )
 plt.axvline(x=max_T, color="0.0", linestyle="dashed")
+plt.legend()
 plt.title(r"Relative error: $\varepsilon_c(t)$")
 plt.xlabel(r"Time($t$)")
 
