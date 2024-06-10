@@ -27,7 +27,7 @@ assert results.id.nunique() == 100
 results = results[results["t"] < 20]
 parameters = get_results_by_tag(api, project, tag, get_config=True)
 max_T_test = 20  # int(parameters["test_T"][0])
-max_T = int(parameters["train_t_max"][0]) + 1
+max_T = parameters["train_t_max"][0]
 t = np.array(range(0, max_T_test))
 
 quant_result_g0 = (
@@ -46,16 +46,16 @@ plt.plot(quant_result_g0["k_t_sol"], "black", label=r"$k(t)$", linestyle="dashed
 plt.plot(
     quant_result_g0["k_t_approx"][quantiles["mid_quant"]],
     "black",
-    label=r"$\hat{k}(t)$",
+    label=r"$\hat{k}(t)$: median",
 )
 plt.fill_between(
     t,
     quant_result_g0["k_t_approx"][quantiles["low_quant"]],
     quant_result_g0["k_t_approx"][quantiles["high_quant"]],
     facecolor="black",
-    alpha=0.15,
+    alpha=0.3,
 )
-plt.axvline(x=max_T - 1, color="0.0", linestyle="dashed")
+plt.axvline(x=max_T, color="0.0", linestyle="dashed")
 ylim_min = 0.7 * np.amin(
     np.minimum(
         quant_result_g0["k_t_approx"][quantiles["mid_quant"]],
@@ -77,31 +77,31 @@ plt.xlabel(r"Time($t$)")
 
 
 ax_errors_k = plt.subplot(222, sharex=ax_k)
-plt.plot(t, quant_result_g0["k_rel_error"][quantiles["mid_quant"]], "black")
+plt.plot(t, quant_result_g0["k_rel_error"][quantiles["mid_quant"]], "black", label = r"$\varepsilon_k(t)$: median")
 plt.fill_between(
     t,
     quant_result_g0["k_rel_error"][quantiles["low_quant"]],
     quant_result_g0["k_rel_error"][quantiles["high_quant"]],
     facecolor="black",
-    alpha=0.4,
+    alpha=0.3 
 )
-plt.axvline(x=max_T - 1, color="0.0", linestyle="dashed")
+plt.axvline(x=max_T , color="0.0", linestyle="dashed")
 plt.title(r"Relative error: $\varepsilon_k(t)$")
 plt.xlabel(r"Time($t$)")
 
 ax_c = plt.subplot(223, sharex=ax_k)
 plt.plot(quant_result_g0["c_t_sol"], "blue", label=r"$c(t)$", linestyle="dashed")
 plt.plot(
-    quant_result_g0["c_t_approx"][quantiles["mid_quant"]], "blue", label=r"$\hat{c}(t)$"
+    quant_result_g0["c_t_approx"][quantiles["mid_quant"]], "blue", label=r"$\hat{c}(t)$: median"
 )
 plt.fill_between(
     t,
     quant_result_g0["c_t_approx"][quantiles["low_quant"]],
     quant_result_g0["c_t_approx"][quantiles["high_quant"]],
     facecolor="blue",
-    alpha=0.15,
+    alpha=0.3,
 )
-plt.axvline(x=max_T - 1, color="0.0", linestyle="dashed")
+plt.axvline(x=max_T , color="0.0", linestyle="dashed")
 ylim_min = 0.7 * np.amin(
     np.minimum(
         quant_result_g0["c_t_approx"][quantiles["mid_quant"]],
@@ -122,15 +122,15 @@ plt.title(r"Consumption: $\hat{c}(t)$")
 plt.xlabel(r"Time($t$)")
 
 ax_errors_k = plt.subplot(224, sharex=ax_k)
-plt.plot(t, quant_result_g0["c_rel_error"][quantiles["mid_quant"]], "blue")
+plt.plot(t, quant_result_g0["c_rel_error"][quantiles["mid_quant"]], "blue",label = r"$\varepsilon_c(t)$: median" )
 plt.fill_between(
     t,
     quant_result_g0["c_rel_error"][quantiles["low_quant"]],
     quant_result_g0["c_rel_error"][quantiles["high_quant"]],
     facecolor="blue",
-    alpha=0.4,
+    alpha=0.3,
 )
-plt.axvline(x=max_T - 1, color="0.0", linestyle="dashed")
+plt.axvline(x=max_T, color="0.0", linestyle="dashed")
 plt.title(r"Relative error: $\varepsilon_c(t)$")
 plt.xlabel(r"Time($t$)")
 
@@ -153,7 +153,7 @@ plt.fill_between(
     quant_result_g0["k_t_approx"][quantiles["low_quant"]],
     quant_result_g0["k_t_approx"][quantiles["high_quant"]],
     facecolor="black",
-    alpha=0.5,
+    alpha=0.3,
 )
 
 
