@@ -25,6 +25,7 @@ python generate_figures/growth_sequential_violating_tvc_paths_below.py
 python generate_figures/growth_sequential_multiple_steady_states_four_initial_k_0.py
 python generate_figures/growth_sequential_multiple_steady_states_var_initial_k_0_full.py
 python generate_figures/growth_sequential_multiple_steady_states_var_initial_k_0.py
+python generate_figures/growth_sequential_g0_sparse_grids.py
 
 
 # growth recursive
