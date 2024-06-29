@@ -54,7 +54,8 @@ ax_errors_k = plt.subplot(221)
 plt.plot(
     quant_result_g0_c["k_t"][quantiles["mid_quant"]],
     quant_result_g0_k["res_t"][quantiles["mid_quant"]],
-    "black",
+    "black", 
+    label = r"Euler residuals squared: median"
 )
 
 plt.fill_between(
@@ -71,7 +72,7 @@ handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
 #plt.legend(by_label.values(), by_label.keys(), prop={"size": params["font.size"]})
 #plt.legend(loc="upper left")
-plt.title(r"Euler residual$s^2$: $NN = k'(k)$")
+plt.title(r"Euler residuals squared: $NN = k'(k)$")
 plt.xlabel(r"capital($k$)")
 
 
@@ -83,7 +84,9 @@ plt.plot(
     quant_result_g0_c["k_t"][quantiles["mid_quant"]],
     quant_result_g0_c["res_t"][quantiles["mid_quant"]],
     "black",
+    r"Euler residuals squared: median"
 )
+
 plt.fill_between(
     quant_result_g0_c["k_t"][quantiles["mid_quant"]],
     quant_result_g0_c["res_t"][quantiles["low_quant"]],
@@ -98,7 +101,7 @@ handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
 #plt.legend(by_label.values(), by_label.keys(), prop={"size": params["font.size"]})
 #plt.legend(loc="upper left")
-plt.title(r"Euler residual$s^2$: $NN = c(k)$")
+plt.title(r"Euler residuals squared: $NN = c(k)$")
 plt.xlabel(r"capital($k$)")
 #ax_errors_c.legend(fancybox=False, framealpha=1.0)
 
@@ -108,7 +111,7 @@ plt.plot(
     quant_result_g0_k["k_t"][quantiles["mid_quant"]],
     quant_result_g0_k["k_tp1"][quantiles["mid_quant"]],
     "black",
-    label=r"$k'(k)$",
+    label=r"$k'(k)$: median",
 )
 plt.plot(
     quant_result_g0_k["k_t"][quantiles["mid_quant"]],
@@ -147,7 +150,7 @@ plt.legend(
     prop={"size": params["font.size"]},
     loc="upper right",
 )
-plt.title(r"$k'(k): NN = k'(k)$")
+plt.title(r"$k'(k): NN = k'(k)$: median")
 plt.xlabel(r"capital($k$)")
 ax_capital_k.legend(fancybox=False, framealpha=1.0, loc="upper right")
 
@@ -157,7 +160,7 @@ plt.plot(
     quant_result_g0_c["k_t"][quantiles["mid_quant"]],
     quant_result_g0_c["k_tp1"][quantiles["mid_quant"]],
     "black",
-    label=r"$k'(k)$",
+    label=r"$k'(k)$: median",
 )
 plt.plot(
     quant_result_g0_c["k_t"][quantiles["mid_quant"]],

@@ -45,7 +45,7 @@ quant_interpolation = quant_result_g0[quant_result_g0["k_t_approx"][quantiles['m
 plt.rcParams.update(params)
 
 ax_k = plt.subplot(221)
-plt.plot(quant_result_g0["k_t_approx"][quantiles['mid_quant']], "black", label=r"$\hat{k}(t)$")
+plt.plot(quant_result_g0["k_t_approx"][quantiles['mid_quant']], "black", label=r"$\hat{k}(t)$: median")
 plt.plot(quant_result_g0["k_t_sol"], "black", label=r"$k(t)$", linestyle="dashed")
 plt.fill_between(
     t, quant_result_g0["k_t_approx"][quantiles['low_quant']], quant_result_g0["k_t_approx"][quantiles['high_quant']], facecolor="black", alpha=0.15
@@ -66,14 +66,14 @@ plt.plot(
     quant_extrapolation["t"], 
     quant_extrapolation["k_rel_error"][quantiles['mid_quant']],
     "black",
-    label=r"Extrapolation",
+    label=r"$\varepsilon_k(t)$: Extrapolation, median",
     linestyle="dashed",
 )
 plt.plot(
     quant_interpolation['t'],
     quant_interpolation["k_rel_error"][quantiles['mid_quant']],
     "black",
-    label=r"Interpolation",
+    label=r"$\varepsilon_k(t)$: Interpolation, median",
 )
 
 plt.fill_between(
@@ -86,7 +86,7 @@ plt.title(r"Relative error: $\varepsilon_k(t)$")
 plt.xlabel(r"Time($t$)")
 
 ax_c = plt.subplot(223, sharex=ax_k)
-plt.plot(quant_result_g0["c_t_approx"][quantiles['mid_quant']], "blue", label=r"$\hat{c}(t)$")
+plt.plot(quant_result_g0["c_t_approx"][quantiles['mid_quant']], "blue", label=r"$\hat{c}(t)$: median")
 plt.plot(quant_result_g0["c_t_sol"], "blue", label=r"$c(t)$", linestyle="dashed")
 plt.fill_between(
     t, quant_result_g0["c_t_approx"][quantiles['low_quant']], 
@@ -106,14 +106,14 @@ plt.plot(
     quant_extrapolation["t"], 
     quant_extrapolation["c_rel_error"][quantiles['mid_quant']],
     "blue",
-    label=r"Extrapolation",
+    label=r"$\varepsilon_c(t)$: Extrapolation, median",
     linestyle="dashed",
 )
 plt.plot(
     quant_interpolation['t'],
     quant_interpolation["c_rel_error"][quantiles['mid_quant']],
     "blue",
-    label=r"Interpolation",
+    label=r"$\varepsilon_c(t)$: Interpolation, median",
 )
 
 plt.fill_between(
