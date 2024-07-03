@@ -65,26 +65,31 @@ plt.fill_between(
     facecolor="black",
     alpha=0.15,
 )
+min_y = min(
+    quant_result_g0_k["res_t"][quantiles["low_quant"]].min(),
+    quant_result_g0_c["res_t"][quantiles["low_quant"]].min()
+)
+max_y = max(
+    quant_result_g0_k["res_t"][quantiles["high_quant"]].max(),
+    quant_result_g0_c["res_t"][quantiles["high_quant"]].max()
+)
 
+# Set the common y-axis limits
+ax_errors_k.set_ylim(min_y, max_y)
 ax_errors_k.set_yscale("log")
 
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-#plt.legend(by_label.values(), by_label.keys(), prop={"size": params["font.size"]})
-#plt.legend(loc="upper left")
-plt.title(r"Euler residuals squared: $NN = k'(k)$")
+plt.title(r"Euler residuals squared: approximating $k'(k)$")
 plt.xlabel(r"capital($k$)")
+plt.legend()
 
 
-#ax_errors_k.legend(fancybox=False, framealpha=1.0)
-
-ax_errors_c = plt.subplot(222, sharey=ax_errors_k)
+ax_errors_c = plt.subplot(222)
 
 plt.plot(
     quant_result_g0_c["k_t"][quantiles["mid_quant"]],
     quant_result_g0_c["res_t"][quantiles["mid_quant"]],
     "black",
-    r"Euler residuals squared: median"
+    label= r"Euler residuals squared: median"
 )
 
 plt.fill_between(
@@ -96,17 +101,13 @@ plt.fill_between(
 )
 
 ax_errors_c.set_yscale("log")
-
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-#plt.legend(by_label.values(), by_label.keys(), prop={"size": params["font.size"]})
-#plt.legend(loc="upper left")
-plt.title(r"Euler residuals squared: $NN = c(k)$")
+ax_errors_c.set_ylim(min_y, max_y)
+plt.title(r"Euler residuals squared: approximating $c(k)$")
 plt.xlabel(r"capital($k$)")
-#ax_errors_c.legend(fancybox=False, framealpha=1.0)
+plt.legend()
 
 
-ax_capital_k = plt.subplot(223, sharex=ax_errors_k)
+ax_capital_k = plt.subplot(223)
 plt.plot(
     quant_result_g0_k["k_t"][quantiles["mid_quant"]],
     quant_result_g0_k["k_tp1"][quantiles["mid_quant"]],
@@ -142,20 +143,11 @@ ylim_max = 1.3 * np.amax(
 )
 plt.ylim([ylim_min, ylim_max])
 
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-plt.legend(
-    by_label.values(),
-    by_label.keys(),
-    prop={"size": params["font.size"]},
-    loc="upper right",
-)
-plt.title(r"$k'(k): NN = k'(k)$: median")
+plt.title(r"$k'(k)$: appriximating  $k'(k)$")
 plt.xlabel(r"capital($k$)")
-ax_capital_k.legend(fancybox=False, framealpha=1.0, loc="upper right")
+plt.legend()
 
-
-ax_capital_c = plt.subplot(224, sharex=ax_errors_k)
+ax_capital_c = plt.subplot(224)
 plt.plot(
     quant_result_g0_c["k_t"][quantiles["mid_quant"]],
     quant_result_g0_c["k_tp1"][quantiles["mid_quant"]],
@@ -191,17 +183,10 @@ ylim_max = 1.3 * np.amax(
 )
 plt.ylim([ylim_min, ylim_max])
 
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-plt.legend(
-    by_label.values(),
-    by_label.keys(),
-    prop={"size": params["font.size"]},
-    loc="upper left",
-)
-plt.title(r"$k'(k): NN = c(k)$")
+
+plt.title(r"$k'(k)$: approximating $c(k)$")
 plt.xlabel(r"capital($k$)")
-ax_capital_c.legend(fancybox=False, framealpha=1.0, loc="upper left")
+plt.legend()
 plt.tight_layout()
 
 
