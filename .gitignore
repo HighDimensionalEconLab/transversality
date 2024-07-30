@@ -86,5 +86,5 @@ metrics.yaml
 wandb/
 
 # figures 
-#figures/*.pdf
+figures/*.pdf
 artifacts/
