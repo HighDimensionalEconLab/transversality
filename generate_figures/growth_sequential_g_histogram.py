@@ -28,8 +28,8 @@ plt.vlines(parameters["g"][0], ymin=0.0, ymax=0.4, colors="red", linestyles="das
 plt.xlim([weights.min()-0.001, weights.max()+0.001])
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
-plt.title(r"$g$ approximation: $\hat{g}$")
-plt.xlabel(r"$\hat{g}$")
+plt.title(r"Growth rate: $e^{\phi}-1$")
+plt.xlabel(r"$e^{\phi}-1$: values")
 plt.tight_layout()
 
 plt.savefig(output_path)

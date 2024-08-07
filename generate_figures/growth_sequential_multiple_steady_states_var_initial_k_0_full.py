@@ -17,7 +17,7 @@ plot_name = "growth_sequential_multiple_steady_states_var_initial_k_0_full"
 output_path = output_dir + "/" + plot_name + ".pdf"
 api = wandb.Api()
 project = "highdimensionaleconlab/deep_learning_transversality"
-params = plot_params((10, 9))
+params = plot_params((10, 4.5))
 tag = "growth_multiple_steady_states_var_initial_k_0"
 results = get_results_by_tag(api, project, tag, get_test_results=True)
 
@@ -33,7 +33,7 @@ c_high = results["c_ss_high_norm"].iloc[0]
 
 
 plt.rcParams.update(params)
-ax_capital = plt.subplot(211)
+ax_capital = plt.subplot(121)
 for id in runs:
     res = results[results["id"] == id]["c_t_approx"]
     # grabbing the wrong trajectories
@@ -77,7 +77,7 @@ plt.title(r"Capital: $\hat{k}(t)$")
 plt.xlabel(r"Time($t$)")
 plt.tight_layout()
 
-ax_consumption = plt.subplot(212, sharex=ax_capital)
+ax_consumption = plt.subplot(122, sharex=ax_capital)
 for id in runs:
     res = results[results["id"] == id]["c_t_approx"]
     if (
