@@ -88,14 +88,14 @@ plt.rcParams.update(params)
 
 # Plotting the violation of TVC with initial condition below the steady state
 ax_k = plt.subplot(131)
-plt.plot(k_tvc, "blue", label=r"$\tilde{k}(t)$")
+plt.plot(k_tvc, "blue", label=r"$k_{max}(t)$")
 plt.plot(kpath, "black", label=r"$k(t)$")
 plt.plot(k_star * np.ones(T), "red", linestyle="dashed", label=r"$k^*$")
 plt.plot(
     k_tilde_max * np.ones(T),
     "lightblue",
     linestyle="dashed",
-    label=r"$\tilde{k}_{max}$",
+    label=r"$k^*_{max}$",
 )
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
@@ -106,7 +106,7 @@ plt.tight_layout()
 
 
 ax_c = plt.subplot(132, sharex=ax_k)
-plt.plot(c_tvc, "blue", label=r"$\tilde{c}(t)$")
+plt.plot(c_tvc, "blue", label=r"$c_{max}(t)$")
 plt.plot(cpath, "black", label=r"$c(t)$")
 plt.plot(c_star * np.ones(T), "red", linestyle="dashed", label=r"$c^*$")
 handles, labels = plt.gca().get_legend_handles_labels()
@@ -118,7 +118,7 @@ plt.legend(loc="best")
 plt.tight_layout()
 
 ax_u_prime_c = plt.subplot(133)
-plt.plot(1.0 / c_tvc, "blue", label=r"$u'(\tilde{c}(t))$")
+plt.plot(1.0 / c_tvc, "blue", label=r"$u'(c_{max}(t))$")
 plt.plot(1.0 / cpath, "black", label=r"$u'(c(t))$")
 plt.plot(1.0 / c_star * np.ones(T), "red", linestyle="dashed", label=r"$u'(c^*)$")
 ax_u_prime_c.set_yscale("log")
