@@ -100,12 +100,12 @@ plt.xlabel(r"Time($t$)")
 plt.tight_layout()
 
 # Zoom in for top left
-time_window = [42, 45]
+time_window = [2, 6]
 ave_value = 0.5 * (
     quant_result_g0["k_t_sol"][time_window[0]]
     + quant_result_g0["k_t_sol"][time_window[1]]
 )
-window_width = 0.0275 * ave_value
+window_width = 0.04 * ave_value
 matplotlib.rcParams.update({"ytick.labelsize": 8})
 
 axins = zoomed_inset_axes(ax_k, 4, loc="lower right")
@@ -135,12 +135,12 @@ mark_inset(ax_k, axins, loc1=1, loc2=3, linewidth="0.7", ls="--", ec="0.5")
 
 
 # Zoom in for bottom left
-time_window = [42, 45]
+time_window = [2, 6]
 ave_value = 0.5 * (
     quant_result_g0["c_t_sol"][time_window[0]]
     + quant_result_g0["c_t_sol"][time_window[1]]
 )
-window_width = 0.0275 * ave_value
+window_width = 0.04 * ave_value
 matplotlib.rcParams.update({"ytick.labelsize": 8})
 
 axins = zoomed_inset_axes(ax_c, 4, loc="lower right")
