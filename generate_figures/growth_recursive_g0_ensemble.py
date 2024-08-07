@@ -51,7 +51,7 @@ plt.fill_between(
     t, quant_result_g0["k_t_approx"][quantiles['low_quant']], quant_result_g0["k_t_approx"][quantiles['high_quant']], facecolor="black", alpha=0.15
 )  # , label="$90/10\% interval$")
 
-plt.fill_between(t, k_min, k_max, facecolor="0.9", label=r"$\mathcal{X}_{train}$")
+plt.fill_between(t, k_min, k_max, facecolor="0.9", label=r"$\mathcal{D}$")
 ylim_min = 0.7 * np.amin(np.minimum(k_min, quant_result_g0["k_t_sol"]))
 ylim_max = 1.1 * np.amax(np.maximum(k_max, quant_result_g0["k_t_sol"]))
 plt.ylim([ylim_min, ylim_max])
