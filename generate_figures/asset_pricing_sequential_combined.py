@@ -61,7 +61,7 @@ plt.rcParams.update(params)
 
 ax_prices_0 = plt.subplot(221)
 plt.plot(t, p_f_0, "black", linestyle="dashed", label=r"$p_f(t)$")
-plt.plot(t, quant_result_g0["p_t"][quantiles["mid_quant"]], "black", label=r"$\hat{p}(t)$: median")
+plt.plot(t, quant_result_g0["p_t"][quantiles["mid_quant"]], "black", label=r"$p_\theta(t)$: median")
 plt.fill_between(t, quant_result_g0["p_t"][quantiles["low_quant"]], quant_result_g0["p_t"][quantiles["high_quant"]], facecolor="black",
 alpha=0.25,
 )
@@ -70,7 +70,7 @@ ylim_min = 0.9 * np.amin(p_f_0)
 ylim_max = 1.1 * np.amax(p_f_0)
 plt.ylim([ylim_min, ylim_max])
 plt.legend()
-plt.title(r"Prices: $\hat{p}(t)$")
+plt.title(r"Prices: $p_\theta(t)$")
 plt.xlabel(r"Time($t$)")
 plt.legend(loc="lower left")
 
@@ -86,8 +86,8 @@ plt.xlabel(r"Time($t$)")
 plt.legend()
 
 ax_prices_pos = plt.subplot(223)
-plt.plot(quant_result_pos["p_t"][quantiles["mid_quant"]], "black", label="$\hat{p}(t)$:median")
 plt.plot(quant_result_pos["p_f_t"], "black", linestyle="dashed", label="$p_f(t)$")
+plt.plot(quant_result_pos["p_t"][quantiles["mid_quant"]], "black", label=r"$p_\theta(t)$: median")
 plt.fill_between(
     t,
     quant_result_pos["p_t"][quantiles["low_quant"]],
@@ -104,7 +104,7 @@ ylim_max = 1.1 * np.amax(
 )
 plt.ylim([ylim_min, ylim_max])
 plt.legend()
-plt.title(r"Price: $\hat{p}(t)$")
+plt.title(r"Price: $p_\theta(t)$")
 plt.xlabel(r"Time($t$)")
 
 ax_errors_pos = plt.subplot(224)

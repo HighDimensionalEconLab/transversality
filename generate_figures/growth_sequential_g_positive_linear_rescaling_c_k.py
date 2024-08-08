@@ -43,7 +43,7 @@ plt.rcParams.update(params)
 
 ax_k = plt.subplot(121)
 plt.plot(quant_result_g0["k_t_sol"], "black", label=r"$k(t)$", linestyle="dashed")
-plt.plot(quant_result_g0["k_t_approx"][quantiles["mid_quant"]],"black", label=r"$\hat{k}(t)$: median")
+plt.plot(quant_result_g0["k_t_approx"][quantiles["mid_quant"]],"black", label=r"$k_\theta(t)$: median")
 plt.fill_between(t,quant_result_g0["k_t_approx"][quantiles["low_quant"]],quant_result_g0["k_t_approx"][quantiles["high_quant"]],
     facecolor="black",
     alpha=0.3,
@@ -63,14 +63,14 @@ ylim_max = 1.1 * np.amax(
 )
 plt.ylim([ylim_min, ylim_max])
 plt.legend()
-plt.title(r"Capital: $\hat{k}(t)$")
+plt.title(r"Capital: $k_\theta(t)$")
 plt.xlabel(r"Time($t$)")
 
 
 ax_c = plt.subplot(122)
 plt.plot(quant_result_g0["c_t_sol"], "blue", label=r"$c(t)$", linestyle="dashed")
 plt.plot(
-    quant_result_g0["c_t_approx"][quantiles["mid_quant"]], "blue", label=r"$\hat{c}(t)$: median"
+    quant_result_g0["c_t_approx"][quantiles["mid_quant"]], "blue", label=r"$c_\theta(t)$: median"
 )
 plt.fill_between(
     t,
@@ -94,7 +94,7 @@ ylim_max = 1.1 * np.amax(
 )
 plt.ylim([ylim_min, ylim_max])
 plt.legend()
-plt.title(r"Consumption: $\hat{c}(t)$")
+plt.title(r"Consumption: $c_\theta(t)$")
 plt.xlabel(r"Time($t$)")
 
 plt.tight_layout()

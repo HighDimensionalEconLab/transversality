@@ -60,7 +60,7 @@ plt.legend(
     prop={"size": params["font.size"]},
     loc="upper right",
 )
-plt.title(r"Capital: $\hat{k}(t)$")
+plt.title(r"Capital: $k_\theta(t)$")
 plt.xlabel(r"Time($t$)")
 plt.tight_layout()
 
@@ -70,14 +70,14 @@ for id in runs:
 plt.plot(
     t,
     results[results["id"] == id]["c_ss_low_norm"],
-    "black",
+    "blue",
     linestyle="dashed",
     label="$c_1^*$",
 )
 plt.plot(
     t,
     results[results["id"] == id]["c_ss_high_norm"],
-    "black",
+    "blue",
     linestyle="dotted",
     label="$c_2^*$",
 )
@@ -93,7 +93,7 @@ plt.legend(
     prop={"size": params["font.size"]},
     loc="upper right",
 )
-plt.title(r"Consumption: $\hat{c}(t)$")
+plt.title(r"Consumption: $c_\theta(t)$")
 plt.xlabel(r"Time($t$)")
 plt.tight_layout()
 

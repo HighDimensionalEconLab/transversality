@@ -46,7 +46,7 @@ plt.plot(quant_result_g0["k_t_sol"], "black", label=r"$k(t)$", linestyle="dashed
 plt.plot(
     quant_result_g0["k_t_approx"][quantiles["mid_quant"]],
     "black",
-    label=r"$\hat{k}(t)$: median",
+    label=r"$k_\theta(t)$: median",
 )
 plt.fill_between(
     t,
@@ -72,7 +72,7 @@ plt.ylim([ylim_min, ylim_max])
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
 plt.legend(by_label.values(), by_label.keys(), prop={"size": params["font.size"]})
-plt.title(r"Capital: $\hat{k}(t)$")
+plt.title(r"Capital: $k_\theta(t)$")
 plt.xlabel(r"Time($t$)")
 
 
@@ -80,7 +80,7 @@ plt.xlabel(r"Time($t$)")
 ax_c = plt.subplot(122, sharex=ax_k)
 plt.plot(quant_result_g0["c_t_sol"], "blue", label=r"$c(t)$", linestyle="dashed")
 plt.plot(
-    quant_result_g0["c_t_approx"][quantiles["mid_quant"]], "blue", label=r"$\hat{c}(t)$: median"
+    quant_result_g0["c_t_approx"][quantiles["mid_quant"]], "blue", label=r"$c_\theta(t)$: median"
 )
 plt.fill_between(
     t,
@@ -106,7 +106,7 @@ plt.ylim([ylim_min, ylim_max])
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
 plt.legend(by_label.values(), by_label.keys(), prop={"size": params["font.size"]})
-plt.title(r"Consumption: $\hat{c}(t)$")
+plt.title(r"Consumption: $c_\theta(t)$")
 plt.xlabel(r"Time($t$)")
 
 
