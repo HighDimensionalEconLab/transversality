@@ -1,10 +1,10 @@
-# Deep learning transversality
+# Spooky Boundaries at a Distance: Forward-Looking Models with Inductive Bias
 
 
 https://github.com/HighDimensionalEconLab/transversality/assets/43940086/0a687ee4-cea5-4dae-864e-05506d454851
 
 
-Source for "Spooky Boundaries at a Distance: Exploring Transversality and Stability with Deep Learning"
+Source for "Spooky Boundaries at a Distance: Forward-Looking Models with Inductive Bias"
 
 ## Installing
 
