@@ -88,8 +88,8 @@ plt.rcParams.update(params)
 ax_capital = plt.subplot(221)
 plt.plot(k_sol, "black", linestyle="dashed", label=r"$k(t)$")
 plt.plot(k_0, "black", label=r"$\hat{k}(t)$: Contiguous")
-plt.plot(k_1, "lightblue", label=r"$\hat{k}(t)$: $\mathcal{X}_{train}$(Grid 1)")
-plt.plot(k_2, "blue", label=r"$\hat{k}(t)$: $\mathcal{X}_{train}$(Grid 2)")
+plt.plot(k_1, "lightblue", label=r"$\hat{k}(t)$: $\mathcal{D}$(Grid 1)")
+plt.plot(k_2, "blue", label=r"$\hat{k}(t)$: $\mathcal{D}$(Grid 2)")
 plt.axvline(x=max_T - 1, color="0.0", linestyle="dashed")
 ylim_min = 0.8 * np.amin(np.minimum(np.minimum(k_sol, k_0), np.minimum(k_1, k_2)))
 ylim_max = 1.3 * np.amax(np.maximum(np.maximum(k_sol, k_0), np.maximum(k_1, k_2)))
@@ -109,10 +109,10 @@ plt.plot(
     t,
     k_1_error,
     "lightblue",
-    label=r"$\varepsilon_k(t)$: $\mathcal{X}_{train}$(Grid 1)",
+    label=r"$\varepsilon_k(t)$: $\mathcal{D}$(Grid 1)",
 )
 plt.plot(
-    t, k_2_error, "blue", label=r"$\varepsilon_k(t)$: $\mathcal{X}_{train}$(Grid 2)"
+    t, k_2_error, "blue", label=r"$\varepsilon_k(t)$: $\mathcal{D}$(Grid 2)"
 )
 plt.axvline(x=max_T - 1, color="0.0", linestyle="dashed")
 handles, labels = plt.gca().get_legend_handles_labels()
@@ -139,7 +139,7 @@ plt.fill_between(
 plt.plot(
     quant_result_g0_grid_2["k_t_approx"][quantiles["mid_quant"]],
     "blue",
-    label=r"$\hat{k}(t)$: $\mathcal{X}_{train}$(Grid 2)",
+    label=r"$\hat{k}(t)$: $\mathcal{D}$(Grid 2)",
 )
 plt.fill_between(
     t,
@@ -193,7 +193,7 @@ plt.plot(
     t,
     quant_result_g0_grid_2["k_rel_error"][quantiles["mid_quant"]],
     "blue",
-    label=r"$\varepsilon_p(t)$: $\mathcal{X}_{train}$(Grid 2)",
+    label=r"$\varepsilon_p(t)$: $\mathcal{D}$(Grid 2)",
 )
 plt.fill_between(
     t,
