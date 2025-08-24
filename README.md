@@ -6,6 +6,10 @@ https://github.com/HighDimensionalEconLab/transversality/assets/43940086/0a687ee
 
 Source for "Spooky Boundaries at a Distance: Forward-Looking Models with Inductive Bias"
 
+We are in the process of merging the codes. For now, the code for the New Keynesian application is available at:
+
+https://github.com/janrosa1/NK-medium-size
+
 ## Installing
 
 ### Quick Installation Instructions
